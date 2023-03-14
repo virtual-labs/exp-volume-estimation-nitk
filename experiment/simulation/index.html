@@ -1,13 +1,1855 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOLVE</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <script src='https://d3js.org/d3.v4.min.js'></script> -->
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+  
+    <!-- <link rel="stylesheet" href="./css/mathstyle.css"/> -->
+  
+    <script>
+        var simsubscreennum = 0;
+        var temp = 0;
+        
+        
+      </script>
+    <style></style>
+    
+  </head>
+<body style="margin: 0; font-family: verdana">
+    <div id="simscreen">
+      <div id="title">
+        <h3> Volume estimation using aerial LiDAR</h3>
+      </div>
+      <div class="simsubscreen" id="canvas0">
+        <h4 class="incanvas">Objective:</h4>
+        <p class="incanvas" style="font-size: 14px">
+            To set up a drone with a LiDAR sensor, mission planning, and post-processing of the data to obtain the point cloud of the surveyed area and estimate the volume of the required region. 
+        </p>
+        <br />
+        <h4 class="incanvas">Apparatus used:</h4>
+        <p class="incanvas" style="font-size: 14px">
+            LiDAR Sensor, RTK with Battery, Tripod, Landing pad, Operating System etc.
+        </p>
+        <br />
+        
+        
+        <br />&nbsp;<span
+          class="tooltip"
+          style="
+            border-bottom: 1px dotted;
+            color: red;
+            text-align: justify;
+            top: -26px;
+           
+            
+          "
+          ><b>Description</b>
+          <span class="tooltiptext">
+            <p><strong style="color: red"></strong> Drones are commonly used for taking cinematic shots, wedding shoots, and photography. As technology is advancing, using geo maps for surveys is widely in use. Google maps data is not precise enough and real-time. On the other hand, Satellite data is very costly. By using drones we can overcome the disadvantages of map data and satellite data. Drone photogrammetry involves capturing large volumes of 2D images over a geographical area and compiling them to create 3D topographical models.An orthomosaic is essentially a large map that is made up of smaller photos. Each aerial photo that a drone pilot captures is pinned to a geographic position. Photos need to have an overlap of at least 70 percent to create an accurate picture.</p>
+            
+          </span>
+        </span>
+        <img
+          style="
+            position: absolute;
+            left: 0px;
+            top: 174px;
+            max-width: 17%;
+            width: 100%;
+            transform: rotateY(180deg);
+          "
+          src="./images/man1.png"
+          title="Man"
+        />
+        <img
+          style="position: absolute; left: 270px; top: 305px; width: 464px"
+          src="./images/table.png"
+        />
+        <img
+          style="position: absolute; left: 394px; top: 342px; width: 44px"
+          title="Sensor"
+          src="./images/P1_1.png"
+        />
+        <img
+          style="position: absolute; left: 463px; top: 341px; width: 90px"
+          title="Landing Pad"
+          src="./images/bagg.png"
+        />
+        
+        <img
+          style="position: absolute; left: 111px; top: 298px; width: 191px"
+          title="Tripod"
+          src="./images/p4.png"
+        />
+        <img
+          style="position: absolute; left: 490px; top: 251px; width: 258px"
+          title="Drone"
+          src="./images/drone.png"
+        />
+        <img
+          style="position: absolute; left: 377px; top: 258px; width: 49px; transform: rotate(90deg);"
+          title="RTK"
+          src="./images/rtk.png"
+        />
+      </div>
+      <div class="simsubscreen" id="canvas1" style="visibility: hidden">
+        <strong class="incanvas">STEP</strong>
+        <span class="circlebg">&nbsp;1&nbsp;</span>
+        <p class="steptext">
+          &nbsp;Set the drone and attach the LiDAR Sensor and place it on the landing pad.
+        </p>
+        <img
+        id="lanPad"
+          style="position: absolute; left: 313px; top: 244px; width: 320px; transform: rotateX(57deg); visibility: hidden;"
+          title="Landing Pad"
+          src="./images/S3.png"
+        />
+        <img
+          id="drone1"
+          style="position: absolute; left: 52px; top: 158px; width: 422px; visibility: hidden;"
+          title="Drone"
+          src="./images/drone.png"
+        />
+        <img
+        id="sensor1"
+          style="position: absolute; left: 565px; top: 330px; width: 50px; visibility: hidden;"
+          title="Sensor"
+          src="./images/P1_1.png"
+        />
+        <img
+        id="sensor2"
+          style="position: absolute; left: 560px; top: 299px; width: 120px; visibility: hidden;"
+          title="Sensor"
+          src="./images/hand11.png"
+        />
+        <img
+          id="drone2"
+          style="position: absolute; left: 52px; top: 158px; width: 422px; visibility: hidden;"
+          title="Drone"
+          src="./images/dronewithsensor.png"
+        />
+        <span
+          id="dialogue"
+          style="
+            position: absolute;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: black;
+            border-radius: 5px;
+            left: 191px;
+            top: 49px;
+            width: 303px;
+            visibility: hidden;
+          "
+        >
+          <p
+            id="divi1"
+            style="color: white; font-size: 15px; padding: 5px; margin-top: 0px"
+          >
+            Note:- Unfold the landing pad.
+          </p>
+          <input
+            type="button"
+            style="
+              cursor: pointer;
+              border-radius: 5px;
+              margin: 0auto;
+              margin-left: 125px;
+              margin-top: 0px;
+            "
+            id="ok1"
+            value="OK"
+            
+          />
+        </span>
+        
+
+
+
+
+
+      </div>
+      <div class="simsubscreen" id="canvas2" style="visibility: hidden">
+          <strong class="incanvas">STEP</strong>
+          <span class="circlebg">&nbsp;2&nbsp;</span>
+          <p class="steptext">
+            &nbsp;Setup Real Time Kinematic (RTK) device: Place the tripod in the open sky and mount the RTK device with a stick on the tripod. 
+          </p>
+          <img
+          id="tripod1"
+          style="position: absolute; left: 261px; top: 303px; width: 192px; visibility: hidden"
+          title="Tripod"
+          src="./images/p4.png"
+          />
+         
+          <img
+          id="rod1"
+          style="position: absolute; left: 568px; top: 125px; width: 53px; visibility: hidden"
+          title="RTK"
+          src="./images/handrod2.png"
+          />
+          <img
+          id="clamp"
+          style="position: absolute; left: 335px; top: 303px; width: 36px; visibility: hidden"
+          title="RTK"
+          src="./images/clamp.png"
+          />
+          <img
+          id="rod2"
+          style="position: absolute; left: 343px; top: 215px; width: 53px; visibility: hidden"
+          title="RTK"
+          src="./images/rtkRod1.png"
+          />
+          <img
+          id="rtk2"
+          style="position: absolute; left: 253px; top: 222px; width: 204px; visibility: hidden"
+          title="RTK"
+          src="./images/newp6.png"
+          />
+          <img
+          id="mount"
+          style="position: absolute; left: 568px; top: 125px; width: 51px; visibility: hidden"
+          title="Mount"
+          src="./images/newp8.png"
+          />
+          <img
+          id="hand1"
+          style="position: absolute; left: 345px; top: 214px; width: 55px; visibility: hidden"
+          title="Hand"
+          src="./images/handp9.png"
+          />
+          <img
+          id="backpage"
+          style="position: absolute; left: 345px; top: 214px; width: 55px; visibility: hidden"
+          
+          src="./images/bg.png"
+          />
+          <img
+          id="mount1"
+          style="position: absolute; left: 345px; top: 214px; width: 55px; visibility: hidden"
+          
+          src="./images/mount1.png"
+          />
+          <img
+          id="hand2"
+          style="position: absolute; left: 530px; top: 164px; width: 91px; visibility: hidden"
+          title="Hand"
+          src="./images/handp9.png"
+          />
+          <span
+          id="dialogue1"
+          style="
+            position: absolute;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: black;
+            border-radius: 5px;
+            left: 392px;
+            top: 114px;
+            width: 303px;
+            visibility: hidden;
+          "
+        >
+          <p
+            id="divi2"
+            style="color: white; font-size: 15px; padding: 5px; margin-top: 0px"
+          >
+            Note:- Make sure the tripod is leveled and the water bubble is at the center.
+          </p>
+          <input
+            type="button"
+            style="
+              cursor: pointer;
+              border-radius: 5px;
+              margin: 0auto;
+              margin-left: 125px;
+              margin-top: 0px;
+            "
+            id="ok2"
+            value="OK"
+            
+          />
+        </span>
+        <img
+          id="rtkSet"
+          style="position: absolute; left: 220px; top: 79px; width: 272px; visibility: hidden"
+          title="RTK"
+          src="./images/19p.png"
+          />
+          <img
+          id="waterPath"
+          style="position: absolute; left: 456px; top: 194px; width: 263px; visibility: hidden"
+          
+          src="./images/27p.png"
+          />
+          <img
+          id="bubble"
+          style="position: absolute; left: 535px; top: 254px; width: 10px; visibility: hidden"
+          
+          src="./images/bubble.png"
+          />
+        
+          
+
+      </div>
+      <div class="simsubscreen" id="canvas3" style="visibility: hidden">
+          <strong class="incanvas">STEP</strong>
+          <span class="circlebg">&nbsp;3&nbsp;</span>
+          <p class="steptext">
+            &nbsp;Insert the battery into the RTK and hold the power button for 3 sec to start RTK.
+          </p>
+          <img
+          id="rtk1"
+          style="position: absolute; left: 4px; top: 79px; width: 252px; visibility: hidden"
+          title="RTK"
+          src="./images/19p.png"
+          />
+          <img
+          id="backpage1"
+          style="position: absolute; left: 10px; top: 161px; width: 55px; visibility: hidden"
+          
+          src="./images/bg.png"
+          />
+          <img
+          id="battery2"
+          style="position: absolute; left: 470px; top: 244px; width: 110px; visibility: hidden"
+          
+          src="./images/15p.png"
+          />
+          <img
+          id="battery1"
+          style="position: absolute; left: 10px; top: 161px; width: 55px; visibility: hidden"
+          
+          src="./images/28p.png"
+          />
+          
+          <img
+          id="battery3"
+          style="position: absolute; left: 357px; top: 129px; width: 94px; visibility: hidden"
+          
+          src="./images/21p.1.1.png"
+          />
+          <img
+          id="batteryCover"
+          style="position: absolute; left: 470px; top: 244px; width: 110px; visibility: hidden"
+          
+          src="./images/24p.png"
+          />
+          <img
+          id="battery4"
+          style="position: absolute; left: 357px; top: 126px; width: 92px; visibility: hidden"
+          
+          src="./images/22p.png"
+          />
+          <img
+          id="mount2"
+          style="position: absolute; left: 380px; top: 146px; width: 159px; visibility: hidden"
+          
+          src="./images/12P.png"
+          />
+          <img
+          id="hand111"
+          style="position: absolute; left: 387px; top: 215px; width: 85px; visibility: hidden"
+          
+          src="./images/14p.png"
+          />
+         
+      </div>
+      <div class="simsubscreen" id="canvas4" style="visibility: hidden">
+          <strong class="incanvas">STEP</strong>
+          <span class="circlebg">&nbsp;4&nbsp;</span>
+          <p class="steptext">
+            &nbsp;Open the flight plan choose the various parameters for the flight & start the mission.
+          </p>
+          <img
+          id="ipad"
+          style="
+            position: absolute;
+            left: -32px;
+            width: 772px;
+            top: 35px;
+            height: 496px;
+            visibility: hidden;
+          "
+          src="./images/ipad11.png"
+        />
+        
+        <div
+          class="tab"
+          id="tab"
+          style="position: absolute; visibility: hidden"
+        >
+
+          <img
+            id="7-1-2"
+            style="
+              position: absolute;
+              left: 198px;
+              width: 508px;
+
+              height: 444px;
+              visibility: hidden;
+            "
+            src="./images/mul.png"
+          />
+
+          <div
+            class="tabcontent"
+            id="tab2"
+            style="position: absolute; visibility: hidden"
+          >
+
+            <form id="form1" class="container">
+              <label
+              id="tbuser"
+                for="fname"
+                style="
+                  position: relative;
+                  font-size: 12px;
+                  font-family: Verdana;
+                "
+                >Create Project:
+              </label>
+              <input
+                type="text"
+                id="fname"
+                style="
+                  position: absolute;
+                  border: none;
+                  width: 102px;
+                  font-size: 12px;
+                  left: 102px;
+                  border-bottom: 1px solid black;
+                "
+                maxlength=""
+                name="fname"
+                placeholder="Enter project name"
+                oninput="setTitle(event)"
+              /><br /><br />
+              <label for="lname">Type of plan:</label>
+              <input type="checkbox" id="plan" name="plan" value="Fly" disabled/>
+              <label for="plan" id="fly">Fly</label>
+
+              <!-- <input
+                type="checkbox"
+                id="upload"
+                name="upload"
+                value="upload"
+                disabled
+              />
+              <label for="upload">Upload</label>--><br /><br /> 
+              <label for="img1" >Include images:</label>
+              <input
+              type="checkbox"
+              id="img1"
+              name="img1"
+              value="img1"
+              onchange="checkClick(event)"
+              
+            />
+            <div class="tooltip"><i id="info1" class="fa fa-info-circle"style="font-size:16px"></i>
+              
+              <span class="tooltiptext" style="width:156px; height: 37px;     left: -104px;
+              top: 18px; font-size: 12px;">Adding images helps to colourize the point cloud </span>
+            </div>
+            <br /><br />
+              <label for="fh"
+                >Flight Height (m):
+                <select
+                  name="fh"
+                  id="fh"
+                  style="position: absolute; font-size: 10px; left: 121px" 
+                  onchange="handleFlightSelection(this)"
+                  disabled
+                >
+                  <option value=""><b> </b></option>
+
+                  <option value="45" id="2"><b>45</b></option>
+
+                  <option value="65" id="3"><b>65</b></option></select
+                ><br />
+              </label>
+
+              <div
+                name="ft"
+                id="ft"
+                style="position: absolute; font-size: 10px; visibility: visible"
+                onchange="myFunction()"
+              >
+                <p value=""><b> </b></p>
+
+                <p value="8.2" id="5"><b></b></p>
+
+                <p value="6.4" id="6"><b></b></p>
+
+                
+              </div>
+
+              <p id="demo" style="font-size: 12px">
+                <b> </b>
+              </p>
+              <!-- <label for="res" id="res" style="position: absolute; visibility:hidden"><b>Resolution is 2.74 cm/px.</b></label><br><br> -->
+              <label for="sug"><em>Suggested flight height is &lt;55m</em></label
+              ><br />
+              <!-- <label for="ft" id="ft" ><b>Flight Time(min):</b></label>
+                    <lable value1="5" id="5"style="position: absolute; visibility: hidden">15</lable>
+                    <lable value="6" id="6" style="position: absolute; visibility: hidden">13</lable>
+                    <label value="7" id="7" >10.45</lable><br> -->
+
+              <p id="demo1" style="font-size: 12px">
+                <b> </b>
+              </p>
+
+              <input
+                type="checkbox"
+                name="area"
+                value="area"
+                id="7-a"
+                disabled
+              />
+              <label for="area" id="7-a1">Show Area (Acre): </label>
+              <label
+                for="area"
+                id="7-aa"
+                style="
+                  position: absolute;
+                  top: 216px;
+                  left: 146px;
+                  visibility: hidden;
+                "
+                >1.28 </label
+              ><br /><br />
+
+              <label for="bat">No of Battery: </label>
+              <label
+                type="text"
+                id="bat"
+                name="bat"
+                value="1"
+                style="
+                  position: absolute;
+                  border: none;
+                  width: 94px;
+                  font-size: 11px;
+                "
+                >1</label
+              ><br />
+              <br />
+
+              <lable id="demo2" style="font-size: 12px" >
+                <b> </b>
+              </lable>
+              <br />
+              <br/>
+
+              <div class="dropdown" id="checker2" style="float: center">
+                <lable class="dropbtn" id="checker" onclick="contents()">Preflight check</lable>
+                <div
+                  class="dropdown-content"
+                  id="checker1"
+                  style="left: 102px; top: 249px; visibility: hidden;"
+                >
+                  <input
+                    type="checkbox"
+                    id="drone"
+                    name="drone"
+                    value="Drone"
+                    onchange="checkClicked(event)"
+                  />Drone<br />
+                  <input
+                    type="checkbox"
+                    id="transmitter"
+                    name="transmitter"
+                    value="transmitter"
+                    onchange="checkClicked(event)"
+                  />Transmitter<br />
+                  <input
+                    type="checkbox"
+                    id="land"
+                    name="land"
+                    value="land"
+                    onchange="checkClicked(event)"
+                  />Landing pad<br />
+                  <input
+                    type="checkbox"
+                    id="Ipad"
+                    name="Ipad"
+                    value="Ipad"
+                    onchange="checkClicked(event)"
+                  />IPad<br />
+                </div>
+                <!-- onchange="checkClicke()" -->
+              </div>
+              <input
+                type="button"
+                id="sub1"
+                value="Start the mission"
+                style="
+                  position: absolute;
+                  width: 220px;
+                  font-size: 12px;
+                  margin: 3px;
+                  left: 1px;
+                  padding: 5px;
+                  border: 1px solid black;
+                  top: 323px;
+                  visibility: hidden;
+                "
+                disabled
+              /><br />
+              <p
+                id="num-2"
+                style="
+                  position: absolute;
+                  top: 342px;
+                  font-size: 12px;
+                  visibility: hidden;
+                "
+              >
+                No of satellite: 15
+              </p>
+              <br />
+              <br />
+              <p
+                id="num-1"
+                style="
+                  position: absolute;
+                  top: 369px;
+                  font-size: 12px;
+                  visibility: hidden;
+                "
+              >
+                % of mission completed:
+              </p>
+              <div
+                id="handleCount"
+                style="position: absolute; visibility: hidden"
+              >
+                <div id="myBar">0</div>
+              </div>
+              <br />
+              <br />
+              <p
+                id="num-3"
+                style="
+                  position: absolute;
+                  top: 396px;
+                  font-size: 12px;
+                  visibility: hidden;
+                "
+              >
+                <em> Simulation speed is 5 times the actual speed. </em>
+              </p>
+              <br />
+              <p
+                id="p7-1"
+                style="
+                  position: absolute;
+                  left: 55px;
+                  top: 130px;
+                  font-size: 28px;
+                  visibility: hidden;
+                  color: white;
+                "
+              ></p>
+              <p
+                id="p7-2"
+                style="
+                  position: absolute;
+                  left: 55px;
+                  top: 165px;
+                  font-size: 28px;
+                  visibility: hidden;
+                  color: white;
+                "
+              ></p>
+              
+            </form>
+            
+
+            <p
+              id="10-4"
+              style="
+                position: absolute;
+                font-size: 18px;
+                width: 334px;
+                left: 300px;
+                top: 211px;
+                visibility: hidden;
+              "
+            >
+              Load the scanned files and images.
+            </p>
+          </div>
+         
+
+        </div>
+
+        <!-- <div
+                id="handleCount"
+                style="position: absolute; visibility: hidden"
+              >
+                <div id="myBar">0</div>
+              </div>
+              <br />
+              <br />
+              <p
+                id="num-3"
+                style="
+                  position: absolute;
+                  top: 388px;
+                  font-size: 12px;
+                  visibility: hidden;
+                "
+              >
+                <em> Simulation speed is 5 times the actual speed. </em>
+              </p>
+              <br />
+              <p
+                id="p7-1"
+                style="
+                  position: absolute;
+                  left: 55px;
+                  top: 130px;
+                  font-size: 28px;
+                  visibility: hidden;
+                  color: white;
+                "
+              ></p>
+              <p
+                id="p7-2"
+                style="
+                  position: absolute;
+                  left: 55px;
+                  top: 165px;
+                  font-size: 28px;
+                  visibility: hidden;
+                  color: white;
+                "
+              ></p>
+              
+            </form>
+            
+
+            <p
+              id="10-4"
+              style="
+                position: absolute;
+                font-size: 20px;
+                width: 254px;
+                left: 331px;
+                top: 211px;
+                visibility: hidden;
+              "
+            >
+              Upload the image here.
+            </p>
+          </div>
+        </div> -->
+
+        <img
+          id="7-1-5"
+          style="
+            position: absolute;
+            left: 232px;
+            width: 476px;
+            top: 58px;
+            height: 445px;
+            visibility: hidden;
+          "
+          src="./images/multi1.png"
+        />
+
+        <img
+          id="7-1-9"
+          style="
+            position: absolute;
+            left: 232px;
+            width: 476px;
+            top: 58px;
+            height: 445px;
+            visibility: hidden;
+          "
+          src="./images/multi2.png"
+        />
+        <input type="button" name="uploads" value="Upload" id="uploads" style="position: absolute; visibility:hidden; top:460px; left: 600px; width: 90px;"></input>
+
+        <!-- <img
+          id="7-1-10"
+          style="
+            position: absolute;
+            left: 232px;
+            width: 476px;
+            top: 58px;
+            height: 445px;
+            visibility: hidden;
+          "
+          src="./images/"
+        /> -->
+
+        <img
+          id="7-1-11"
+          style="
+            position: absolute;
+            left: 373px;
+            width: 176px;
+            top: 139px;
+            height: 141px;
+            visibility: hidden;
+          "
+          src="./images/upload2.png"
+        />
+        <img
+          id="7-1-6"
+          style="
+            position: absolute;
+            left: 628px;
+            width: 22px;
+
+            height: 19px;
+            top: 333px;
+            rotate: 70deg;
+            visibility: hidden;
+          "
+          src="./images/plane1.png"
+        />
+        <img
+          id="7-1-66"
+          style="
+            position: absolute;
+            left: 537px;
+            width: 22px;
+
+            height: 19px;
+            top: 390px;
+            rotate: 248deg;
+            visibility: hidden;
+          "
+          src="./images/plane1.png"
+        />
+        <img
+          id="7-1-7"
+          style="
+            position: absolute;
+            left: 680px;
+            width: 26px;
+
+            height: 24px;
+            top: 57px;
+            rotate: 90deg;
+            visibility: hidden;
+          "
+          src="./images/batt.png"
+        />
+        <img
+          id="7-1-7a"
+          style="
+            position: absolute;
+            left: 523px;
+            width: 22px;
+
+            height: 21px;
+            top: 396px;
+            
+            visibility: hidden;
+          "
+          src="./images/home.png"
+        />
+        <img
+          id="7-1-7b"
+          style="
+            position: absolute;
+            left: 633px;
+            width: 22px;
+
+            height: 21px;
+            top: 348px;
+            
+            visibility: hidden;
+          "
+          src="./images/home.png"
+        />
+        <button
+          id="10-1"
+          style="
+            position: absolute;
+            margin-top: 20px;
+            width: 150px;
+            top: 395px;
+            left: 367px;
+            height: 28px;
+            color: antiquewhite;
+
+            background-color: rgb(2, 2, 2);
+            border: none;
+            border-radius: 4px;
+            visibility: hidden;
+          "
+        >
+          OK
+        </button>
+        <img
+          id="7-1-8"
+          style="
+            position: absolute;
+            left: 650px;
+            width: 27px;
+
+            height: 20px;
+            top: 62px;
+            rotate: 90deg;
+            visibility: hidden;
+          "
+          src="./images/sat1.png"
+        />
+        <lable for="out" id="out1" style="position: absolute; left: 287px; width:134px; top: 87px; visibility: hidden"> Project name:</lable>
+        <p class="output" id="output1" style="position: absolute; left:407px; top:75px; z-index: index 101; font-size: 14px; color: black; visibility: hidden;"> </p>
+        <div
+          id="10-2"
+          style="
+            position: absolute;
+            visibility: hidden;
+            width: 317px;
+            top: 200px;
+            left: 350px;
+          "
+        >
+          <p id="l1" style="position: absolute; visibility: hidden; top: -41px">
+            Loading!
+          </p>
+          <div id="laodProgress">
+            <div id="load">10%</div>
+          </div>
+        </div>
+        <p
+          id="up1"
+          style="
+            position: absolute;
+            left: 392px;
+            top: 235px;
+            width: 191px;
+            visibility: hidden;
+          "
+          class="animate-bottom"
+        >
+          Upload is completed!
+        </p>
+
+        <!-- <p id="form1" style="top:20px; left:20px; ">
+          <form>
+            <input type="text"
+          </form>
+          Create Project
+
+        </p> -->
+        <span
+          id="dialo"
+          style="
+            position: absolute;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: black;
+            border-radius: 5px;
+            left: 342px;
+            top: 189px;
+            width: 219px;
+            visibility: hidden;
+          "
+        >
+          <p
+            id="divig1"
+            style="color: white; font-size: 15px; padding: 5px; margin-top: 0px"
+          >
+            Note:- Click on the upload button to process the captured
+            data.
+          </p>
+          <input
+            type="button"
+            style="
+              cursor: pointer;
+              border-radius: 5px;
+              margin: 0auto;
+              margin-left: 71px;
+              margin-top: 0px;
+            "
+            id="5-6-1"
+            value="OK"
+            onclick=" hidedial1();"
+          />
+        </span>
+        <span
+          id="dialo1"
+          style="
+            position: absolute;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: black;
+            border-radius: 5px;
+            left: 342px;
+            top: 189px;
+            width: 219px;
+            visibility: hidden;
+          "
+        >
+          <p
+            id="divig2"
+            style="color: white; font-size: 15px; padding: 5px; margin-top: 0px"
+          >
+            Note:- Click on the check button of Upload, to process the captured
+            data.
+          </p>
+          <input
+            type="button"
+            style="
+              cursor: pointer;
+              border-radius: 5px;
+              margin: 0auto;
+              margin-left: 71px;
+              margin-top: 0px;
+            "
+            id="5-6-11"
+            value="OK"
+            onclick=" hidedial2();"
+          />
+        </span>
+        <span
+          id="dialo2"
+          style="
+            position: absolute;
+            padding: 10px;
+            border: 1px solid black;
+            background-color: black;
+            border-radius: 5px;
+            left: 342px;
+            top: 189px;
+            width: 219px;
+            visibility: hidden;
+          "
+        >
+          <p
+            id="divig3"
+            style="color: white; font-size: 15px; padding: 5px; margin-top: 0px"
+          >
+            Note:- Click on the check button of Upload, to process the captured
+            data.
+          </p>
+          <input
+            type="button"
+            style="
+              cursor: pointer;
+              border-radius: 5px;
+              margin: 0auto;
+              margin-left: 71px;
+              margin-top: 0px;
+            "
+            id="5-6-22"
+            value="OK"
+            onclick=" hidedial3();"
+          />
+        </span>
+        <!-- <input type="button" name="next" value="Next" id="next1" style="position: absolute; visibility:hidden; top:467px; left: 600px; width: 90px;"></input> -->
+
+      </div>
+      <div class="simsubscreen" id="canvas5" style="visibility: hidden">
+          <strong class="incanvas">STEP</strong>
+          <span class="circlebg">&nbsp;5&nbsp;</span>
+          <p class="steptext">
+            &nbsp;Choose output settings and process data to obtain point cloud.
+          </p>
+          <div class="tab3" id="tab3" style="position: absolute; visibility: hidden;">
+            <form name="test" style="position: absolute; font-size:12px; padding:5px;">
+              <!-- <label>Processed Result:</label><br /> -->
+              <label for="pd"
+                >Select point density:
+                <select
+                  name="pd"
+                  id="pd"
+                  style="position: absolute; font-size: 12px; left: 5px; top: 22px; width:117px" 
+                 
+                >
+                  <option value="High" id="high"><b>High</b></option>
+
+                  <option value="Medium" id="medium"><b>Medium</b></option>
+
+                  <option value="Low" id="low"><b>Low</b></option></select>
+
+
+                <div class="tooltip"><i id="info3" class="fa fa-info-circle"style="position:absolute; font-size:16px; left:-4px; top:5px;"></i>
+              
+                  <span class="tooltiptext" style="width:132px; height: 42px;     left: -130px;
+                  top: 25px; font-size: 12px;">Higher the point density more the processing time.</span>
+                </div><br />
+              </label>
+              <br><br/>
+              <label>Optimize point cloud accuracy:
+                <label class="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </label>
+              <div class="tooltip"><i id="info2" class="fa fa-info-circle"style="position:absolute; font-size:16px; left:11px; top:-12px;"></i>
+              
+                <span class="tooltiptext" style="width:155px; height: 77px;     left: -114px;
+                top: 7px; font-size: 12px;">Optimize point cloud data collected at different times for higher overall consistency and accuracy.</span>
+              </div>
+              <br><br/>
+              <lable>Output formats:</lable><br><br/>
+              <input type="checkbox" id="las" name="las" value="las"  onchange="checkClicked1(event)" />
+              <label for="las" id="las1">LAS</label>
+              <div class="tooltip"><i id="info4" class="fa fa-info-circle"style="position:absolute; font-size:16px; left:1px; top:-14px;"></i>
+              
+                <span class="tooltiptext" style="width:213px; height: 70px;     left: 17px;
+                top: -36px; font-size: 12px;">LAS (Lidar Binary) files are a common file format used to store point cloud data collected by airborne or terrestrial LiDAR (Light Detection and Ranging) sensors.</span>
+              </div><br /><br/>
+              <input type="checkbox" id="ply" name="ply" value="ply"  onchange="checkClicked1(event)" />
+              <label for="ply" id="ply1">PLY</label>
+              <div class="tooltip"><i id="info5" class="fa fa-info-circle"style="position:absolute; font-size:16px; left:3px; top:-13px;"></i>
+              
+                <span class="tooltiptext" style="width:213px; height: 70px;     left: 18px;
+                top: -34px; font-size: 12px;">PLY is a file format used to store 3D point cloud data or mesh data with information about surface geometry, color, and connectivity.</span>
+              </div><br /><br/>
+              <input type="checkbox" id="pcd" name="pcd" value="pcd"  onchange="checkClicked1(event)"/>
+              <label for="pcd" id="pcd1">PCD</label>
+              <div class="tooltip"><i id="info6" class="fa fa-info-circle"style="position:absolute; font-size:16px; left:-2px; top:-14px;"></i>
+              
+                <span class="tooltiptext" style="width:213px; height: 89px;     left: 13px;
+                top: -33px; font-size: 12px;">PCD (Point Cloud Data) is another file format used to store 3D point cloud data with x, y, and z coordinates, and additional information such as color and intensity values.</span>
+              </div><br /><br/>
+              <br><br/>
+              <input
+                type="button"
+                id="sub11"
+                value="Start processing"
+                style="
+                  position: absolute;
+                  width: 152px;
+                  font-size: 12px;
+                  margin: 3px;
+                  left: 1px;
+                  padding: 5px;
+                  border: 1px solid black;
+                  top: 223px;
+                  visibility: hidden;
+                "
+                disabled
+              />
+              <div id='myDiv' style="position: absolute; top: 20px; left: 170px;"> </div>
+              <div
+              id="11-2"
+              style="
+                position: absolute;
+                visibility: hidden;
+                width: 317px;
+                top: 200px;
+                left: 350px;
+              "
+            >
+            <p id="head1" style="position: absolute; visibility: hidden; top: -201px; left:-39px; font-size: 18px;">
+              Point cloud processing options
+            </p>
+              <p id="l11" style="position: absolute; visibility: hidden; top: -47px; font-size: 16px;">
+                Processing Scans!
+              </p>
+              <div id="laodProgress">
+                <div id="load1">10%</div>
+              </div>
+            </div>
+            <div
+              id="11-3"
+              style="
+                position: absolute;
+                visibility: hidden;
+                width: 317px;
+                top: 200px;
+                left: 350px;
+              "
+            >
+              <p id="l12" style="position: absolute; visibility: hidden; top: -47px; font-size: 16px;">
+                Registering Scans!
+              </p>
+              <div id="laodProgress">
+                <div id="load2">10%</div>
+              </div>
+            </div>
+            <p id="pc"style="position: absolute; visibility: hidden;top: 143px;width: 206px;left: 338px; font-size: 16px;">Point cloud generated!</p> 
+
+
+            </form>
+            </div>
+      </div>
+      <div class="simsubscreen" id="canvas6" style="visibility: hidden">
+          <strong class="incanvas">STEP</strong>
+          <span class="circlebg">&nbsp;6&nbsp;</span>
+          <p class="steptext">
+            &nbsp;Select the required boundary and find the volume of the boundary region.
+          </p><br><br>
+          
+          <label onchange="option1()" for="rgb" id="rgb1" style="position: absolute;top: 63px;left: 6px;width: 87px;">
+            <input type="radio" id="rgb" name="fav_language" value="RGB">Height</label>
+            <label onchange="option2()" for="height" id="height1"  style="position: absolute;top: 97px;left: 6px;width: 85px;">
+              <input type="radio" id="height" name="fav_language" value="Height" disabled>RGB</label>
+        <!-- <input type="radio" id="height" name="fav_language" value="CSS" style="position: absolute;    top: 69px;left: 49px;width: 17px;">
+         <label onchange="option2()"id="height1"for="css">Height</label><br> -->
+          
+         <img
+          id="b"
+          style="
+            position: absolute;
+            left: 97px;
+    width: 614px;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/b.png"
+        />
+        <img
+          id="a"
+          style="
+            position: absolute;
+            left: 97px;
+    width: 614px;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/a.png"
+        />
+        <input type="button" name="next" value="Next" id="next1" style="position: absolute; visibility:hidden; top:467px; left: 600px; width: 90px;"></input>
+        <input type="button" name="next" value="Next" id="next2" style="position: absolute; visibility:hidden; top:467px; left: 600px; width: 90px;"></input>
+
+        
+      <img
+          id="6-3"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/1a.png"
+        />
+        <img
+        id="6-2"
+        style="position: absolute;left: 240px;
+        top: 347px;
+        width: 14px; visibility: hidden;"
+        title=""
+        src="./images/mark.png"
+      />
+      <img
+          id="6-4"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/2a.png"
+        />
+        <img
+          id="6-5"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/3a.png"
+        />
+        <img
+          id="6-6"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/4a.png"
+        />
+        <img
+          id="6-7"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/5a.png"
+        />
+        <img
+          id="6-8"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/6a.png"
+        />
+        <img
+          id="6-9"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/7a.png"
+        />
+        <img
+          id="6-10"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/8a.png"
+        />
+        <img
+          id="6-11"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/9a.png"
+        />
+        <img
+          id="6-12"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/10a.png"
+        />
+        <img
+          id="6-13"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/11a.png"
+        />
+        <img
+          id="6-14"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/12a.png"
+        />
+        <img
+          id="6-15"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/13a.png"
+        />
+        <img
+          id="6-16"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/14a.png"
+        />
+        <img
+          id="6-17"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/15a.png"
+        />
+        <img
+        id="6-1-21"
+        style="position: absolute;left: 161px;
+        top: 331px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+      />
+        <img
+        id="6-1-1"
+        style="position: absolute;left: 176px;
+        top: 310px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+      />
+      <img
+        id="6-1-2"
+        style="position: absolute;left: 221px;
+        top: 270px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+      />
+      <img
+      id="6-1-3"
+      style="position: absolute;left: 268px;
+      top: 238px;
+      width: 44px; visibility: hidden;"
+      title=""
+      src="./images/mark1.png"
+      />
+      <img
+      id="6-1-4"
+      style="position: absolute;left: 337px;
+      top: 200px;
+      width: 44px; visibility: hidden;"
+      title=""
+      src="./images/mark1.png"
+      />
+      <img
+      id="6-1-5"
+      style="position: absolute;left: 436px;
+      top: 209px;
+      width: 44px; visibility: hidden;"
+      title=""
+       src="./images/mark1.png"
+      />
+      <img
+        id="6-1-6"
+        style="position: absolute;left: 517px;
+        top: 213px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+        /><img
+      id="6-1-7"
+      style="position: absolute;left: 656px;
+      top: 232px;
+      width: 44px; visibility: hidden;"
+      title=""
+      src="./images/mark1.png"
+      /><img
+      id="6-1-8"
+      style="position: absolute;left: 647px;
+      top: 297px;
+      width: 44px; visibility: hidden;"
+      title=""
+      src="./images/mark1.png"
+      /><img
+      id="6-1-9"
+      style="position: absolute;left: 599px;
+      top: 329px;
+      width: 44px; visibility: hidden;"
+      title=""
+      src="./images/mark1.png"
+      /><img
+        id="6-1-10"
+        style="position: absolute;left: 455px;
+        top: 296px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+      /><img
+        id="6-1-11"
+        style="position: absolute;left: 306px;
+        top: 304px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+        /><img
+        id="6-1-12"
+        style="position: absolute;left: 219px;
+        top: 368px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+        /><img
+        id="6-1-13"
+        style="position: absolute;left: 218px;
+        top: 358px;
+        width: 44px; visibility: hidden;"
+        title=""
+        src="./images/mark1.png"
+        />
+        <input type="button" name="compute" value="Compute" id="compute" style="position: absolute; visibility:hidden; top:467px; left: 600px; width: 90px;"></input>
+        <div id="prom" style="position: absolute; background-color: #f9f9f9;
+        visibility: hidden;
+        left: 253px;
+        top: 375px;
+        font-size: 14px;
+        border-radius: 5px;
+        padding: 5px;">
+        <p>Cut volume: 22578.89 m<sup>3</sup></p>
+        </div>
+        
+        <div
+              id="11-4"
+              style="
+                position: absolute;
+                visibility: hidden;
+                width: 317px;
+                top: 283px;
+                left: 251px;
+                color: antiquewhite;
+              "
+            >
+              <p id="l13" style="position: absolute; visibility: hidden; top: -47px; font-size: 16px;">
+                Processing volume
+              </p>
+              <div id="laodProgress">
+                <div id="load3">10%</div>
+              </div>
+            </div>
+        <img
+          id="7-1"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/h1.png"
+        />
+        <img
+          id="7-2"
+          style="
+            position: absolute;
+            left: -13px;
+    width: 100%;
+    top: 51px;
+    height: 449px;
+            visibility: hidden;
+          "
+          src="./images/h2.png"
+        /><img
+        id="7-3"
+        style="
+          position: absolute;
+          left: -13px;
+  width: 100%;
+  top: 51px;
+  height: 449px;
+          visibility: hidden;
+        "
+        src="./images/h3.png"
+      /><img
+      id="7-4"
+      style="
+        position: absolute;
+        left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+        visibility: hidden;
+      "
+      src="./images/h4.png"
+    /><img
+    id="7-5"
+    style="
+      position: absolute;
+      left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+      visibility: hidden;
+    "
+    src="./images/h5.png"
+  /><img
+  id="7-6"
+  style="
+    position: absolute;
+    left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+    visibility: hidden;
+  "
+  src="./images/h6.png"
+/><img
+id="7-7"
+style="
+  position: absolute;
+  left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+  visibility: hidden;
+"
+src="./images/h7.png"
+/><img
+id="7-8"
+style="
+  position: absolute;
+  left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+  visibility: hidden;
+"
+src="./images/h8.png"
+/><img
+id="7-9"
+style="
+  position: absolute;
+  left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+  visibility: hidden;
+"
+src="./images/h9.png"
+/><img
+id="7-10"
+style="
+  position: absolute;
+  left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+  visibility: hidden;
+"
+src="./images/h10.png"
+/><img
+id="7-11"
+style="
+  position: absolute;
+  left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+  visibility: hidden;
+"
+src="./images/h11.png"
+/><img
+id="7-12"
+style="
+  position: absolute;
+  left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+  visibility: hidden;
+"
+src="./images/h12.png"
+/><img
+id="7-13"
+style="
+  position: absolute;
+  left: -13px;
+width: 100%;
+top: 51px;
+height: 449px;
+  visibility: hidden;
+"
+src="./images/h13.png"
+/>
+<img
+id="7-1-1"
+style="position: absolute;left: 71px;
+top: 382px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-22"
+style="position: absolute;left: 132px;
+top: 302px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-3"
+style="position: absolute;left: 232px;
+top: 209px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-4"
+style="position: absolute;left: 341px;
+top: 177px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-52"
+style="position: absolute;left: 432px;
+top: 184px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-62"
+style="position: absolute;left: 540px;
+top: 185px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-72"
+style="position: absolute;left: 595px;
+top: 212px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-82"
+style="position: absolute;left: 554px;
+top: 247px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-92"
+style="position: absolute;left: 451px;
+top: 247px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-10"
+style="position: absolute;left: 334px;
+top: 270px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-112"
+style="position: absolute;left: 157px;
+top: 386px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<!-- <img
+id="7-1-12"
+style="position: absolute;left: 221px;
+top: 270px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/>
+<img
+id="7-1-13"
+style="position: absolute;left: 221px;
+top: 270px;
+width: 44px; visibility: hidden;"
+title=""
+src="./images/mark1.png"
+/> -->
+<input type="button" name="compute" value="Compute" id="compute1" style="position: absolute; visibility:hidden; top:467px; left: 600px; width: 90px;"></input>
+<div id="prom1" style="position: absolute; background-color: #f9f9f9;
+visibility: hidden;
+left: 253px;
+top: 375px;
+font-size: 14px;
+border-radius: 5px;
+padding: 5px;">
+<p>Cut volume: 20883.09 m<sup>3</sup></p>
+
+</div>       
+<div
+              id="11-5"
+              style="
+                position: absolute;
+                visibility: hidden;
+                width: 317px;
+                top: 283px;
+                left: 251px;
+                color: antiquewhite;
+              "
+            >
+              <p id="l14" style="position: absolute; visibility: hidden; top: -47px; font-size: 16px;">
+                Processing volume
+              </p>
+              <div id="laodProgress">
+                <div id="load4">10%</div>
+              </div>
+   </div>
+
+      </div>
+
+
+
+      <div id="nav">
+        <img id="nextButton" onclick="navNext()" src="./images/Next.png" />
+      </div>
+      <img class ="" id="arrow1" style="visibility:hidden;" src="images/arrow1.png"/>
+      <img class ="" id="arrow2" style="visibility:hidden;" src="images/arrow2.png"/>
+     
+  
+
+    
+
+      <div id="copyright">
+        &copy; 2020 - 
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        SOLVE - The Virtual Lab @ NITK Surathkal, Department of Water Resources
+        & Ocean Engineering
+      </div>      
+
 </body>
 </html>
