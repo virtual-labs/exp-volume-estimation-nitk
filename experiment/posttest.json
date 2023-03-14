@@ -2,35 +2,86 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What does LiDAR stand for?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Light Detection and Ranging",
+        "b": "Laser Distance and Reflection",
+        "c": "Light Distortion and Refraction",
+        "d": "Laser Diffraction and Reflection"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "LiDAR stands for Light Detection and Ranging, which accurately describes the technology. LiDAR uses light (in the form of laser pulses) to detect the distance and shape of objects.",
+        "b": "Laser Distance and Reflection - This answer is close, but it misses the fact that LiDAR uses light (in the form of laser pulses) to detect distance and shape, not just distance.",
+        "c": "Light Distortion and Refraction - This answer is incorrect. While LiDAR does involve light and reflection, the purpose of LiDAR is to accurately detect the shape and distance of objects, not distort or refract light.",
+        "d": "Laser Diffraction and Reflection - This answer is incorrect. While LiDAR does involve lasers and reflection, the purpose of LiDAR is to accurately detect the shape and distance of objects, not to diffraction or reflect lasers."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "What is the main advantage of LiDAR over traditional surveying methods?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "LiDAR is less expensive",
+        "b": "LiDAR is faster",
+        "c": "LiDAR is more accurate",
+        "d": "LiDAR is easier to use"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "LiDAR is less expensive - This answer is incorrect. LiDAR systems can be quite expensive, especially for high-end models.",
+        "b": "LiDAR is faster - This answer is incorrect. While LiDAR can be faster in some cases, the speed of the surveying process depends on factors like the density of the LiDAR point cloud and the size of the area being surveyed.",
+        "c": "LiDAR is more accurate than traditional surveying methods because it uses laser pulses to directly measure the distance to objects. This allows for highly accurate 3D models of the surveyed area.",
+        "d": "LiDAR is easier to use - This answer is incorrect. LiDAR systems require skilled operators and specialized software to effectively capture and process data."
+      },
+      "correctAnswer": "c",
+      "difficulty": "Advanced"
+    },
+    {
+      "question": "What is the typical range of a LiDAR sensor? ",
+      "answers": {
+        "a": "A few centimeters to a few meters",
+        "b": "A few meters to a few hundred meters",
+        "c": " A few hundred meters to a few kilometers",
+        "d": "A few kilometers to tens of kilometers"
+      },
+      "explanations": {
+        "a": "The range of a LiDAR sensor is typically longer than a few centimeters, and in some cases can exceed a few meters.",
+        "b": "The typical range of a LiDAR sensor is a few meters to a few hundred meters, although some specialized systems can reach farther distances. This range is suitable for most applications such as surveying, mapping, and object detection.",
+        "c": "While some LiDAR systems may have a range of a few hundred meters, most systems are not capable of measuring distances in the kilometers range.",
+        "d": "LiDAR systems with a range of several kilometers are typically used in specialized applications such as atmospheric research, and are not typically used in surveying, mapping, or object detection."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": " Which of the following is not a common type of LiDAR system?",
+      "answers": {
+        "a": "Airborne LiDAR",
+        "b": "Terrestrial LiDAR",
+        "c": "Underwater LiDAR",
+        "d": "Spaceborne LiDAR"
+      },
+      "explanations": {
+        "a": "Airborne LiDAR systems are commonly used for surveying and mapping large areas, as well as for generating high-resolution terrain models.",
+        "b": "Terrestrial LiDAR systems are commonly used for surveying and mapping smaller areas, such as buildings, archaeological sites, and industrial facilities.",
+        "c": "While underwater LiDAR systems have been developed, they are not as common as airborne, terrestrial, and spaceborne LiDAR systems. Underwater LiDAR systems are used for applications such as measuring ocean depths and mapping underwater features.",
+        "d": "Spaceborne LiDAR systems are used for remote sensing applications, such as measuring the height and density of forests and mapping the topography of the earth's surface."
+      },
+      "correctAnswer": "c",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "What is the main disadvantage of LiDAR compared to other remote sensing technologies?",
+      "answers": {
+        "a": "LiDAR is expensive",
+        "b": "LiDAR is less accurate",
+        "c": "LiDAR is affected by weather conditions",
+        "d": "LiDAR requires a lot of power"
+      },
+      "explanations": {
+        "a": "While LiDAR systems can be expensive, the cost of LiDAR technology has decreased significantly in recent years.",
+        "b": "LiDAR is generally more accurate than other remote sensing technologies such as aerial photography or satellite imagery.",
+        "c": "LiDAR signals can be affected by atmospheric conditions such as fog, rain, and snow, which can cause scattering and absorption of the laser pulses. This can affect the accuracy and resolution of LiDAR data.",
+        "d": "While LiDAR systems do require power, the power requirements are typically lower than other remote sensing technologies such as radar."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
