@@ -33,7 +33,7 @@
         "d": "Temperature, humidity, and altitude can all affect the speed of light and the atmospheric conditions that affect the propagation of LiDAR signals, which can impact the accuracy of LiDAR measurements."
       },
       "correctAnswer": "d",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "Which of the following is not a common application of LiDAR?",
@@ -67,7 +67,7 @@
         "d": "LiDAR has some limitations, including its inability to detect transparent or reflective surfaces, its limited range and resolution, and its sensitivity to weather conditions."
       },
       "correctAnswer": "d",
-      "difficulty": "Advanced"
+      "difficulty": "advanced"
     },
     {
       "question": "What is the difference between a single-beam LiDAR and a multi-beam LiDAR?",
@@ -84,7 +84,7 @@
         "d": "The field of view of a LiDAR system depends on the design of the system and is not necessarily related to whether it is a single-beam or multi-beam system."
       },
       "correctAnswer": "a",
-      "difficulty": "Advanced"
+      "difficulty": "advanced"
     }
   ]
 }
