@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "What is the difference between 2D LiDAR and 3D LiDAR?",
+      "answers": {
+        "a": "2D LiDAR measures distance only, while 3D LiDAR measures distance and height",
+        "b": "2D LiDAR produces a 2D point cloud, while 3D LiDAR produces a 3D point cloud",
+        "c": "2D LiDAR scans a single plane, while 3D LiDAR scans multiple planes",
+        "d": "2D LiDAR uses a single laser, while 3D LiDAR uses multiple lasers"
+      },
+      "explanations": {
+        "a": "Both 2D and 3D LiDAR systems can measure distance and height, but 2D LiDAR systems do not scan multiple planes to obtain height information.",
+        "b": "While 2D LiDAR systems do produce a 2D point cloud, 3D LiDAR systems produce a 3D point cloud with both distance and height information.",
+        "c": "2D LiDAR systems scan a single plane to obtain distance measurements, while 3D LiDAR systems scan multiple planes to obtain distance and height measurements, producing a 3D point cloud.",
+        "d": "Both 2D and 3D LiDAR systems can use a single laser or multiple lasers, depending on the design of the system."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following factors can affect the accuracy of LiDAR measurements?",
+      "answers": {
+        "a": "Temperature",
+        "b": "Humidity",
+        "c": "Altitude",
+        "d": "All of the above"
+      },
+      "explanations": {
+        "a": "While temperature can affect the accuracy of LiDAR measurements, it is not the only factor that can impact accuracy.",
+        "b": "While humidity can affect the accuracy of LiDAR measurements, it is not the only factor that can impact accuracy.",
+        "c": "While altitude can affect the accuracy of LiDAR measurements, it is not the only factor that can impact accuracy.",
+        "d": "Temperature, humidity, and altitude can all affect the speed of light and the atmospheric conditions that affect the propagation of LiDAR signals, which can impact the accuracy of LiDAR measurements."
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following is not a common application of LiDAR?",
+      "answers": {
+        "a": "Autonomous driving",
+        "b": "Agricultural monitoring",
+        "c": "Weather forecasting",
+        "d": "Archaeological mapping"
+      },
+      "explanations": {
+        "a": "LiDAR is a key technology for autonomous driving and is used for object detection and mapping of the surrounding environment.",
+        "b": "LiDAR can be used for agricultural monitoring, such as measuring crop height and density, and identifying crop health and stress.",
+        "c": "LiDAR is not commonly used for weather forecasting, although LiDAR-based systems can be used for atmospheric research to measure the distribution of aerosols, clouds, and precipitation.",
+        "d": "LiDAR is used for archaeological mapping because it can create high-resolution, three-dimensional maps of terrain and vegetation, allowing archaeologists to identify previously unknown or hidden features without excavation."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is a limitation of LiDAR?",
+      "answers": {
+        "a": "It is unable to detect transparent or reflective surfaces",
+        "b": "It is limited in range and resolution",
+        "c": "It is affected by weather conditions",
+        "d": "All of the above"
+      },
+      "explanations": {
+        "a": "This answer is partially correct, but it is not the only limitation of LiDAR.",
+        "b": "This answer is partially correct, but it is not the only limitation of LiDAR.",
+        "c": "This answer is partially correct, but it is not the only limitation of LiDAR.",
+        "d": "LiDAR has some limitations, including its inability to detect transparent or reflective surfaces, its limited range and resolution, and its sensitivity to weather conditions."
+      },
+      "correctAnswer": "d",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the difference between a single-beam LiDAR and a multi-beam LiDAR?",
+      "answers": {
+        "a": "Single-beam LiDAR uses a single laser beam, while multi-beam LiDAR uses multiple laser beams",
+        "b": "Single-beam LiDAR produces a 2D point cloud, while multi-beam LiDAR produces a 3D point cloud",
+        "c": "Single-beam LiDAR scans a single point, while multi-beam LiDAR scans multiple points simultaneously",
+        "d": "Single-beam LiDAR has a narrower field of view than multi-beam LiDAR"
+      },
+      "explanations": {
+        "a": "Single-beam LiDAR systems use a single laser beam to scan a single point at a time, while multi-beam LiDAR systems use multiple laser beams to scan multiple points simultaneously.",
+        "b": "Both single-beam and multi-beam LiDAR systems can produce both 2D and 3D point clouds, depending on the design of the system.",
+        "c": "Single-beam LiDAR systems scan a single point at a time, while multi-beam LiDAR systems scan multiple points simultaneously.",
+        "d": "The field of view of a LiDAR system depends on the design of the system and is not necessarily related to whether it is a single-beam or multi-beam system."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    }
+  ]
+}
