@@ -1,1 +1,1 @@
-## Volume estimation using ariel LiDAR
+## Volume estimation using aerial LIDAR
